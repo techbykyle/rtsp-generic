@@ -40,12 +40,10 @@ const RtspGeneric = ({clearTileState, device, tile, useRtsp, useRtspPlayStream})
     }
 
     return <video
-        className="videoCanvas"
         ref={video_ref}
         autoPlay={true}
         muted={true}
         controls={true}
-        style={{marginTop: '10px'}}
         width="100%"
         height="auto" />
 }
