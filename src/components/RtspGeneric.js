@@ -4,16 +4,11 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 const RtspGeneric = ({clearTileState, device, tile, useRtsp, useRtspPlayStream}) => {
 
     const device_state = useSelector(state => state.DeviceController.data[tile.id], shallowEqual) || {}
-    const [stream_ready, setStreamReady] = useState(false)
     const video_ref = useRef(null)
     const dispatch = useDispatch()
     
-    if(device_state.stream_ready && !stream_ready) {
-        setStreamReady(true)
-    }
-
     useRtsp(device.id, tile.id)    
-    useRtspPlayStream(stream_ready, video_ref, device.id)
+    useRtspPlayStream(device_state.stream_ready, video_ref, device.id)
 
     useEffect(() => {
         return () => {
@@ -30,7 +25,7 @@ const RtspGeneric = ({clearTileState, device, tile, useRtsp, useRtspPlayStream})
         </div>
     }
 
-    if(!stream_ready) {
+    if(!device_state.stream_ready) {
         return <div className="center_container">
             <div className="center_inner">
                 <div className="button_loader button_loader_l"></div>
