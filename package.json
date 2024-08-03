@@ -1,7 +1,7 @@
 {
   "name": "rtsp-generic",
   "federated-module-name": "RtspGeneric",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Display a real time RTSP stream.",
   "main": "index.js",
   "scripts": {
