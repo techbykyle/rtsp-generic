@@ -13,7 +13,6 @@ const RtspGeneric = ({clearTileState, device, tile, useRtsp, useRtspPlayStream})
     useEffect(() => {
         return () => {
             dispatch(clearTileState(tile.id))
-            setStreamReady(false)
         }
     }, [])
 
